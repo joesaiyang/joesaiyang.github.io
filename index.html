@@ -39,19 +39,33 @@
     padding: 1rem 0.5rem;
   }
 
+  .hero {
+    height: 800px;
+    background: #333;
+  }
+
   img {
     max-width: 100%;
     max-height: 400px;
     margin-right: 5px;
   }
+
+  label.gfield_label:first-child {
+    -webkit-appearance: listbox
+    /* margin-top: 20px; */
+}
+
 </style>
 
 </head>
 <body>
-   <!-- Block of editable richtext -->
-<simpla-text path="/text"></simpla-text>
+   
+  <main class="hero">
+    <h1><simpla-text path="/text"></simpla-text></h1>
+  </main>
 
 <!-- An editable image -->
 <img is="simpla-img" path="/section/img">
 </body>
 </html>
+
