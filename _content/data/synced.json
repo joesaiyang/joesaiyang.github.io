@@ -1,9 +1,10 @@
 {
-  "type": "Text",
+  "type": "Image",
   "data": {
-    "text": "<p>undefined</p>"
+    "src": "[upload lg3cg.png]",
+    "alt": ""
   },
   "path": "/synced",
   "createdAt": "2018-02-11T06:59:03.456Z",
-  "updatedAt": "2018-02-11T07:07:32.519Z"
+  "updatedAt": "2018-02-11T07:12:21.684Z"
 }
