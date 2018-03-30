@@ -1,0 +1,442 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Accessibility Guide</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Coustard|Bungee|Open+Sans:400,400i,700,700i" rel="stylesheet">    
+
+    <!-- FONT AWESOME -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    
+
+    <!-- PRE PRETTIFY -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <style>
+
+        body { font-family: 'Open Sans', sans-serif; }
+
+        .container { max-width: 980px;}
+
+        header {
+            height: 500px;
+            background: url(assets/btmn.jpg) center;
+            background-size: cover;
+        }
+        h1 {
+            font-family: 'Bungee', cursive; 
+        }
+
+        h2 { font-size: 2rem; }
+
+        .page-title {
+            background: #347b9c;
+            border-radius: 100px;
+            padding: 10px;
+            margin-top: 370px;
+            border: 8px solid #fff;
+            color: #fff;
+        }
+        
+        .sub-title {
+            font-family:'Open Sans', sans-serif; font-size: 1rem;
+        }
+
+
+        /* --- TYPOGRAPHY -- */
+        .smtxt { font-size: .875rem;}
+
+
+        .bg-grey { background: #f3f3f3; }
+
+        /* --- MARGIN --- */
+        .m-t-xs { margin-top: 10px; }
+        .m-t-sm { margin-top: 20px; }
+        .m-t-md { margin-top: 40px; }
+        .m-t-lg { margin-top: 60px; }
+
+        .m-b-xs { margin-bottom: 10px; }
+        .m-b-sm { margin-bottom: 20px; }
+        .m-b-md { margin-bottom: 40px; }
+        .m-b-lg { margin-bottom: 60px; }
+
+        .m-y-lg { margin-top: 80px; margin-bottom: 80px; }
+
+        .p-y-lg { padding-top: 80px; padding-bottom: 80px; }
+
+
+        /* --- INPUT --- */
+        input { 
+            border: 1px solid #333; 
+            border-radius: 4px;   
+            padding: 10px 10px;   
+            display: block;  
+            }
+
+        input[type="submit"], input[type="reset"]{
+            min-width: 145px;
+            border: 1px solid #0f6a7f;
+            background:#0f6a7f;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: .875rem; 
+            padding: 14px 10px;
+            letter-spacing: 2px;
+            display: inline;
+            transition: .5s;
+        }
+
+        input[type="reset"]{
+            border: 1px solid #0f6a7f;
+            background: transparent;
+            color: #0f6a7f;
+        }
+
+        input[type="reset"]:hover, input[type="reset"]:focus{
+            border: 1px solid #0f6a7f;
+            background: #0f6a7f;
+            color: #fff;
+            transition: .5s;
+        }
+
+        input[type="submit"]:hover, input[type="submit"]:focus {
+            background: #093f4c;
+        }
+
+
+        /* --- SELECT --- */
+        select {
+            padding: 10px 15px;
+            display: block;
+            width: 200px;
+            -webkit-appearance: none;
+            border: 1px solid #333;
+            margin-bottom: 10px;
+        }
+
+        select.arrow {
+            background-image:
+              linear-gradient(45deg, transparent 50%, #333 50%),
+              linear-gradient(135deg, #333 50%, transparent 50%);
+            background-position:
+              calc(100% - 20px) calc(1em + 2px),
+              calc(100% - 15px) calc(1em + 2px),
+              calc(100% - 2.5em) 0.5em;
+            background-size:
+              6px 6px,
+              6px 6px,
+              1px 1.5em;
+            background-repeat: no-repeat;
+          }
+          
+          select:-moz-focusring {
+            color: transparent;
+            text-shadow: 0 0 0 #000;
+          }
+
+        
+        /* ---- TOOL TIP --- */
+
+        .a11y_tooltip {
+            position: relative;
+            display: inline-block;
+            position: absolute;
+            top: 46px;
+            left: 229px;
+        }
+        
+        .a11y_tooltip .a11y_tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 0px;
+            padding: 5px 0;
+        
+            /* Position the tooltip */
+            position: absolute;
+            margin-top: -60px;
+            left: -60px;
+            z-index: 1;
+        }
+        
+        .a11y_tooltip:hover .a11y_tooltiptext, .a11y_tooltip:focus .a11y_tooltiptext {
+            visibility: visible;
+        }
+
+
+       
+        pre {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .prettyprint {
+            white-space: pre-wrap;
+        }
+
+        .prettyprint::before {
+            content:'';
+            display: block;
+            margin-top: -45px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #fbba1e;
+            border-radius: 50px;
+            z-index: 2;
+            position: absolute;
+            font-size: .875rem;
+            background-image: url(assets/rbn.jpg);
+            background-size: cover;
+        }
+
+        .prettyprint::after {
+            content:'"Holy Semantics Batman!"';
+            display: block;
+            top: 0px;
+            margin-top: -20px;
+            margin-left: 50px;
+            position: absolute;
+            font-style: italic;
+            letter-spacing: .1;
+        }
+
+blockquote {
+    font-size: 1rem;
+    margin-left: 50px;
+    position: relative;
+    font-style: italic;
+    color: #ff5645;
+    transition: .5s;
+
+}
+
+blockquote:hover {
+    font-size: 1rem;
+    margin-left: 50px;
+    position: relative;
+    font-style: italic;
+    color:#666;
+    transition: .5s;
+
+}
+
+
+blockquote::before {
+    content: " \" ";
+    font-family: 'Coustard', serif;
+    font-style: initial;
+    font-size: 6rem;
+    position: absolute;
+    display: block;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    margin-left: -55px;
+    margin-top: -30px;
+}
+
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="m-y-lg col">
+                    <div class="row">
+                        <div class="col m-b-lg">
+                                <h1 class="page-title text-center"><span class="hidden-xs-down">Accessibility </span> <span class="hidden-sm-up">A11y </span> Guide <br><span class="sub-title">THE KICKASS GUIDE FOR WEB ACCESSIBILITY NOOBS</span></span></h1>
+                        </div>
+                        
+                    </div> <!--row-->
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    
+    <main class="container m-y-lg">
+        
+            <div class="row">
+                    <div class="col-md-4 m-b-md">
+                            <img class="img-fluid" src="assets/robin.png"> 
+                    </div>
+                    <div class="col m-b-lg">
+                            <p>So you've just been handed a can of whoop-ass from Batman and quite frankly you enjoyed it. There's something wrong with you and you know it. That's why you're here wearing a pair of speedos... Don't worry, you'll earn your green leggings soon. But before then, you need to master the sacred kung fu art of accessibility. When you're through with this site Batman's buddhist palm is gonna have nothing on you! </p>
+
+                            <p>Are you ready? Best be, cause this is gonna be one b*tch'n ride.</p> 
+
+                            <p class="smtxt">Disclaimer: The intent of this website is strictly to provide you with an introductory level of web accessibilty. In no case should you use this course as a means to learn sacred shaolin hand-to-hand combat.   </p>
+                    </div>
+            </div> <!--row-->
+
+        <div class="row">
+                <div class="col m-b-md">
+                        <h2>Web Content Accessibility Guidelines (WCAG)</h2>
+                        <p> Your kung fu journey starts here. This sacred text is internationally recognized as the standard for creating web accessible websites. If you don't know WCAG or atleast how to read it, you're pretty much screwed. So let's begin! </p>
+
+                        
+                </div>
+                
+        </div> <!--row-->
+        <div class="row">
+            <div class="m-b-md col-md-12">
+                <h3>Four Principles</h3>
+                <p> WCAG is made up of 4 principles which makes up the acronym <strong>POUR</strong>. Bruce Lee referenced it numerous times when he gave his famous quote: <blockquote>"You must be shapeless, formless, like water. When you <strong>pour</strong> water in a cup, it becomes the cup. When you <strong>pour</strong> water in a bottle, it becomes the bottle. When you <strong>pour</strong> water in a teapot, it becomes the teapot. Water can drip and it can crash. Become like water my friend."</blockquote> I know... profound! This nugget of wisdom is going to help you remember the four principles to WCAG. </p>
+                <ol>
+                    <li><strong>Perceivable:</strong> Will a user be able to perceieve the information that you're showing them? Will they be able to perceive what you're asking them to do, and how to navigate through your site?</li>
+                    <li><strong>Operable:</strong> Will a user who has limited mobility be able to operate your website with only a keyboard?</li>
+                    <li><strong>Understandable:</strong> Will the user be able to understand the information and how to use the interface?</li>
+                    <li><strong>Robust:</strong> Is what you've created adaptable with technology? </li>
+                </ol>
+
+                <h4>Principle 1: Perceivable</h4>
+                <p>Information and user interface components must be presentable to users in ways they can perceive.</p>
+                <ul>
+                    <li>Text Alternative: Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
+                            (WCAG 1.1)</li> 
+                    <li>Turn on your Screen Reader (or ChromeVox) and tab to the input field. Notice how it reads the content below the text field? That's the power of Accessible Rich Internet Applications (ARIA). In the sample code below you'll see that I used the <code>aria-describedby</code> attribute and referenced the <code>id="sample_input_text"</code> containing the content. </li>
+                </ul>
+            </div>
+        </div><!--row-->
+        <div class="row">
+            <div class="m-b-md col-md-12">
+                <form action="">
+                    <label for="sample_input">Labels... Use Them!</label>
+                    <input id="sample_input" class="m-b-xs" type="text" aria-describedby="sample_input_text" placeholder="Placeholder ≠ Label" required>
+                    <span id="sample_input_text" class="smtxt d-block">Labels are neccessary for web accessibility. This is an example of the aria-describedby attribute. </span>
+                    <input class="m-t-sm" type="reset"> <input class="m-t-sm" type="submit">
+                </form>
+            </div>
+
+            <div class="col-md-12">
+<pre class="prettyprint">
+&ltlabel for="sample_input">Sample Label&lt/label&gt
+&ltinput id="sample_input" type="text" aria-describedby="sample_input_text" required&gt
+&ltspan id="sample_input_text"> Labels are neccessary for web accessibility. This is an example of the aria-describedby attribute. &lt/span&gt
+</pre>
+            </div>
+        </div><!--row-->
+    </main>
+
+
+    <section class="container m-y-lg">
+        <div class="row">
+                <div class="col m-b-md">
+                        <h2>HTML UI Components</h2>
+                        <p> My first rule for UI components is to always use native components first. That is, unless your company is dying to brand their own fancy schmancy components. In that case, DO NOT DESIGN or BUILD components without first understanding how native HTML UI components function on a mouse, keyboard, and screen reader. Once you do that, move onto learning what Accessible Rich Internet Applications (ARIA) attributes, roles, or states are needed to make your component work properly for assistive technologies. </p>
+                </div>
+        </div> <!--row-->
+        <div class="row">
+            <div class="m-b-md col-md-12">
+                <h3>Input Text Fields</h3>
+                <p>It's hard to get this wrong folks. It comes great out of the box and you style it however you want to (within reason). Now here are a fewmnthings to keep in mind: </p>
+                <ul>
+                    <li>Always use a label. It's required for meeting the Web Content Accessibility Guidelines. (<a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html" target="_blank">WCAG 3.3.2.</a>)</li>
+                    <li>LEAVE the glorious focus state ALONE... unless you have a badass plan for "enhancing" it... but if you're reading this, you probably don't. So leave it alone! (<a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html" target="_blank">WCAG 2.4.7</a>)
+                    </li>
+                    <li>Placeholder text should never be used in place of a label. It's contrast ratio is too low, and it's not read by some screen readers. Use it, but don't EVER use it in place of a label. (<a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank">WCAG 1.4.3</a>) </li>
+                </ul>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Click on the label and notice how the text field receives focus!</li>
+                    <li>Turn on your Screen Reader (or ChromeVox) and tab to the input field. Notice how it reads the content below the text field? That's the power of Accessible Rich Internet Applications (ARIA). In the sample code below you'll see that I used the <code>aria-describedby</code> attribute and referenced the <code>id="sample_input_text"</code> containing the content. </li>
+                </ul>
+            </div>
+        </div><!--row-->
+        <div class="row">
+            <div class="m-b-md col-md-12">
+                <form action="">
+                    <label for="sample_input">Labels... Use Them!</label>
+                    <input id="sample_input" class="m-b-xs" type="text" aria-describedby="sample_input_text" placeholder="Placeholder ≠ Label" required>
+                    <span id="sample_input_text" class="smtxt d-block">Labels are neccessary for web accessibility. This is an example of the aria-describedby attribute. </span>
+                    <input class="m-t-sm" type="reset"> <input class="m-t-sm" type="submit">
+                </form>
+            </div>
+
+            <div class="col-md-12">
+<pre class="prettyprint">
+&ltlabel for="sample_input">Sample Label&lt/label&gt
+&ltinput id="sample_input" type="text" aria-describedby="sample_input_text" required&gt
+&ltspan id="sample_input_text"> Labels are neccessary for web accessibility. This is an example of the aria-describedby attribute. &lt/span&gt
+</pre>
+            </div>
+        </div><!--row-->
+    </section>
+
+
+    <section id="select_dropdowns" class="bg-grey p-y-lg">
+        <div class="container ">
+            <div class="row">
+                <div class="  m-b-md col-md-12">
+                    <h3>Select Dropdowns</h3>
+                    <p>Alright, the select dropdowns can be ugly AF. But by adding <code>-webkit-appearance: none;</code> you can have a bit of customization over the select field. However, if you're going to go native (recommended), you'll have to bear with the native dropdown appearance (it's not soooo bad). Now if you or your company thinks it's THAT bad, you may want to simply create your own dropdowns. But remember, observe the functionality of the native select dropdown first before you go off creating your own! </p>
+                    <ul>
+                        <li>Always use a label. It's required for meeting the Web Content Accessibility Guidelines. (<a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html" target="_blank">WCAG 3.3.2.</a>)</li>
+                        <li>LEAVE the glorious focus state ALONE! (<a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html" target="_blank">WCAG 2.4.7</a>)
+                        </li>
+                        <li>Placeholder text should never be used in place of a label. 
+                        <li>To set up a placeholder text for select dropdowns, you must set <code>option</code> to <code>disabled</code> and <code>selected</code> </li> (<a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank">WCAG 1.4.3</a>) </li>
+                    </ul>
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Click on the label and notice how the select field receives focus!</li>
+                        <li>Notice the beautiful contrast as you hover over the dropdown options</li>                        
+                        <li>Use tab to bring the select field into focus. When you hit tab again, the focus goes to another ui component.</li>
+                        <li>They keyboard arrow keys enable you to select options from the dropdown.</li>
+                        <li>Turn on your Screen Reader (or ChromeVox) and tab to the input field. Notice how it reads the content below the text field? That's the power of Accessible Rich Internet Applications (ARIA). In the sample code below you'll see that I used the <code>aria-describedby</code> attribute and referenced the <code>id="sample_select_text"</code> containing the content. </li>
+                    </ul>
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div class="m-b-md col-md-12">
+                    <form action="">
+                        <label for="native-select">Label for Select</label>
+                        <select name="" id="native-select" class="arrow" aria-describedby="sample_submit_text" required >
+                            <option value="" disabled selected>Select Placeholder</option>
+                            <option value="1">Batman</option>
+                            <option value="4">BIll</option>
+                            <option value="2">Robin</option>
+                            <option value="3">Night Wing</option>
+                            <option value="4">Crazy Robin</option>
+                        </select>
+                        
+                        <span id="sample_submit_text" class="smtxt d-block">Labels are neccessary for web accessibility. This is an example of the aria-describedby attribute. </span>
+                        <input class="m-t-sm" type="reset"> <input class="m-t-sm" type="submit">
+                    </form>
+                </div>
+    
+                <div class="col-md-12">
+<pre class="prettyprint">
+&ltlabel for="native-select">Label for Select>&lt/label>
+&ltselect name="" id="native-select" aria-describedby="sample_submit_text" required>
+    &ltoption value="" disabled selected> Select Placeholder&lt/option>
+    &ltoption value="1">Batman&lt/option>
+    &ltoption value="2">Robin&lt/option>
+    &ltoption value="3">Night Wing&lt/option>
+    &ltoption value="4">Crazy Robin&lt/option>
+&lt/select>
+&ltspan id="sample_submit_text" class="smtxt d-block">Labels are neccessary for web accessibility. This is an example of the aria-describedby attribute. &lt/span></pre>
+                </div>
+            </div><!--row-->
+        </div>
+    </section>
+
+
+    <script>
+    document.addEventListener('focusin', () => { console.log(document.activeElement); });
+    </script>
+
+</body>
+</html>
